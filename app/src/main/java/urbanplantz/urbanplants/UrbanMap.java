@@ -8,6 +8,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -79,7 +81,7 @@ public class UrbanMap extends FragmentActivity {
             Connection getCon = DriverManager.getConnection(host, uName, uPass);
         }
         catch ( SQLException err ) {
-           // Log.e("SQL" ,err.getMessage( ) );
+            Log.e("SQL" ,err.getMessage( ) );
         }
 
 
@@ -92,7 +94,7 @@ public class UrbanMap extends FragmentActivity {
             Connection putCon = DriverManager.getConnection(host, uName, uPass);
         }
         catch ( SQLException err ) {
-          //  Log.e("SQL" ,err.getMessage( ) );
+            Log.e("SQL" ,err.getMessage( ) );
         }
 
     }
