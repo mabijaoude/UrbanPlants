@@ -8,9 +8,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
 public class UrbanMap extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+
+    String host = "urbanplants.db.8384869.hostedresource.com";
+    String uName = "urbanplants";
+    String uPass= "TTSJ4Lyfe!";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,4 +72,29 @@ public class UrbanMap extends FragmentActivity {
     private void setUpMap() {
         mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
     }
+
+    public void getFromDatabase()
+    {
+        try {
+            Connection getCon = DriverManager.getConnection(host, uName, uPass);
+        }
+        catch ( SQLException err ) {
+           // Log.e("SQL" ,err.getMessage( ) );
+        }
+
+
+
+    }
+
+    public void putToDatabase()
+    {
+        try {
+            Connection putCon = DriverManager.getConnection(host, uName, uPass);
+        }
+        catch ( SQLException err ) {
+          //  Log.e("SQL" ,err.getMessage( ) );
+        }
+
+    }
+
 }
