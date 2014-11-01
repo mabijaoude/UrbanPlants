@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <group android:id="@+id/group1">
-        <item android:id="@+id/item1" android:title="X"></item>
-        <item android:id="@+id/item2" android:title="Y"></item>
-        <item android:id="@+id/item3" android:title="Z"></item>
-        <item android:id="@+id/item4" android:title="Share"></item>
+        <item android:id="@+id/newUser"
+              android:title="New User"
+              android:orderInCategory="1"
+              />
+
+
+
+        <item android:id="@+id/login" android:title="Login"></item>
+
+
+
+        <item android:id="@+id/about" android:title="About"></item>
+
+
     </group>
 </menu>

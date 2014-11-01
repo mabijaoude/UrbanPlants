@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MenuInflater;
 import android.view.Menu;
 import android.R.menu;
+import android.view.MenuItem;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -47,6 +48,29 @@ public class UrbanMap extends FragmentActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.newUser:
+                Log.e("newUser" ,"new User Clicked" );
+                return true;
+            case R.id.login:
+                Log.e("newUser" ,"login Clicked" );
+                return true;
+            case R.id.about:
+                Log.e("newUser" ,"about Clicked" );
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        //return true;
+    }
+
+
     /**
      * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
      * installed) and the map has not already been instantiated.. This will ensure that we only ever
