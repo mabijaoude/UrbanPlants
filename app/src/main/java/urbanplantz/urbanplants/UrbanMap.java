@@ -9,6 +9,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.util.Log;
+import android.view.MenuInflater;
+import android.view.Menu;
+import android.R.menu;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,6 +40,13 @@ public class UrbanMap extends FragmentActivity {
         setUpMapIfNeeded();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
     /**
      * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
      * installed) and the map has not already been instantiated.. This will ensure that we only ever
