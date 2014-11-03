@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">UrbanPlants</string>
-    <string name="title_activity_urban_map">Urban Map</string>
+    <string name="title_activity_urban_map">Urban Plants Map</string>
     <string name="action_search">Search</string>
     <string name="action_settings">Settings</string>
     <string name="menu_settings">Settings</string>

@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.R.menu;
 import android.view.MenuItem;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -47,7 +48,7 @@ public class UrbanMap extends FragmentActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
-    }
+       }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -111,8 +112,10 @@ public class UrbanMap extends FragmentActivity {
 
     public void getFromDatabase()
     {
+        Statement sqlString = null;
         try {
             Connection getCon = DriverManager.getConnection(host, uName, uPass);
+            //sqlString;
         }
         catch ( SQLException err ) {
             Log.e("SQL" ,err.getMessage( ) );
