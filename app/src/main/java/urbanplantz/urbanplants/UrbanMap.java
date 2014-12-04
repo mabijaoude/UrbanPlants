@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class UrbanMap extends FragmentActivity {
@@ -29,9 +30,34 @@ public class UrbanMap extends FragmentActivity {
     String uPass= "TTSJ4Lyfe!";
 
 
+    //test PlantType objects
+    PlantType testRaspberry = new PlantType ("Raspberry", "rubus strigosus");
+    PlantType testApple = new PlantType ("Apple", "malus domestica");
+    PlantType testGinseng = new PlantType("American Ginseng", "panax quinquefolius");
+
+    PlantNode plant1 = new PlantNode(new LatLng(54, -48), testRaspberry, "Ed");
+    PlantNode plant2 = new PlantNode(new LatLng(53, -48), testApple, "Ed");
+    PlantNode plant3 = new PlantNode(new LatLng(54, -47), testGinseng, "Ed");
+    PlantNode plant4 = new PlantNode(new LatLng(55, -47), testRaspberry, "Marc");
+    PlantNode plant5 = new PlantNode(new LatLng(52, -49), testGinseng, "Marc");
+
+    //test PlantNode ArrayList (use ArrayList because it's better & more dynamic than Java's native arrays
+    ArrayList<PlantNode> plantNodes = new ArrayList<PlantNode>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //initialize test plants
+        plantNodes.add(plant1);
+        plantNodes.add(plant2);
+        plantNodes.add(plant3);
+        plantNodes.add(plant4);
+        plantNodes.add(plant5);
+
+
+
         setContentView(R.layout.activity_urban_map);
         setUpMapIfNeeded();
     }
@@ -100,14 +126,12 @@ public class UrbanMap extends FragmentActivity {
         }
     }
 
-    /**
-     * This is where we can add markers or lines, add listeners or move the camera. In this case, we
-     * just add a marker near Africa.
-     * <p>
-     * This should only be called once and when we are sure that {@link #mMap} is not null.
-     */
+
+
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+        for (PlantNode node : plantNodes) {
+            mMap.addMarker(new MarkerOptions().position(node.coordinates).title(node.plant.name + " (" + node.plant.scientificName + ")"));
+        }
     }
 
     public void getFromDatabase()
